@@ -1,10 +1,7 @@
 <template>
   <div class="chat-div">
-    <span 
-      v-for="(item,idx) in messageList" :key="idx"
-      :class="{'chat-send':item.type,'chat-receive':!item.type}"
-    >
-    {{ item.data }}
+    <span >
+    {{ receiveMessage }}
     </span>
   </div>
   <div class="chat-input">
@@ -15,23 +12,20 @@
 
 <script setup lang="ts">
 import io from 'socket.io-client'
-import {ref} from 'vue'
+import { ref } from 'vue'
 
-const client = io('http://127.0.0.1:4000').connect()
-
-const messageList = [{
-  type: 1,
-  data: '123'
-}]
-client.on('message', (res: string) => {
-  console.log(res)
-  messageList.push({type: 0, data: res})
-})
+const client = io('http://127.0.0.1:4000?userId=1', { reconnection: true }).connect()
 
 const inputMessage = ref('')
+const receiveMessage = ref('')
+
+client.on('message', (res) => {
+  console.log(res._value)
+  receiveMessage.value = res._value
+})
+
 const send = () => {
-  messageList.push({type: 1, data: inputMessage.value})
-  client.emit('message', inputMessage.value)
+  client.emit('message', inputMessage)
 }
 </script>
 
