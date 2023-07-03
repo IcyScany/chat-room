@@ -4,7 +4,10 @@ export interface AppState {
 
 const appState: AppState = {
   user: {
-    userId: ''
+    userId: '',
+    username: '',
+    password: '',
+    createTime: 0
   }
 }
 

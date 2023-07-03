@@ -18,6 +18,7 @@ module.exports = {
     'quotes': ['error','single'],
     'semi': ['error','never'],
     'indent': ['error', 2],
-    'no-undef': ['error', 0]
+    'no-undef': 'off',
+    'eslint-disable-next-line': 'off',
   }
 }

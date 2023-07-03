@@ -3,22 +3,25 @@
 </template>
 
 <script lang='ts' setup>
-import createStore from '@/store'
-import appActions from './store/app/actions'
+import createStore from './store'
+import { register } from './api'
 // import { storeToRefs } from 'pinia'
 
 const store = createStore()
 const app = store.app
 
 const user1: User = {
-  userId: '123'
+  userId: '',
+  username: 'myname3',
+  password: '1234562',
+  createTime: new Date().valueOf()
 }
 
-appActions.set_user(user1)
+register(user1).then((res) => {
+  console.log(res)
+})
 
-console.log(app.user.userId)
-
-console.log(app.get_user)
+app.set_user(user1)
 </script>
 
 <style>
