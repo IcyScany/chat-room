@@ -14,10 +14,10 @@
 import io from 'socket.io-client'
 import { ref } from 'vue'
 
-const client = io('http://127.0.0.1:4000?userId=1', { reconnection: true }).connect()
-
 const inputMessage = ref('')
 const receiveMessage = ref('')
+
+const client = io('http://127.0.0.1:4000?userId=1', { reconnection: true }).connect()
 
 client.on('message', (res) => {
   console.log(res._value)
