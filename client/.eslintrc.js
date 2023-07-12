@@ -15,8 +15,8 @@ module.exports = {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     
-    'quotes': ['error','single'],
-    'semi': ['error','never'],
+    'quotes': ['error', 'single'],
+    'semi': ['error', 'never'],
     'indent': ['error', 2],
     'no-undef': 'off',
     'eslint-disable-next-line': 'off',

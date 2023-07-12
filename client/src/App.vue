@@ -1,28 +1,19 @@
 <template>
-  <router-view></router-view>
+  <menu-com />
+  <div class="content">
+    <router-view></router-view>
+
+  </div>
 </template>
 
 <script lang='ts' setup>
-import createStore from './store'
-import { register } from './api'
-// import { storeToRefs } from 'pinia'
-
-const store = createStore()
-const app = store.app
-
-const user1: User = {
-  userId: '',
-  username: 'myname3',
-  password: '1234562',
-  createTime: new Date().valueOf()
-}
-
-register(user1).then((res) => {
-  console.log(res)
-})
-
-app.set_user(user1)
+import menuCom from '@/components/menuCom.vue'
 </script>
 
 <style>
+.content {
+  position: absolute;
+  left: 200px;
+  top: 100px;
+}
 </style>
