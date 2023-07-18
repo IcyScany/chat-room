@@ -1,11 +1,10 @@
 <template>
-    <login-tab></login-tab>
+  <appcom-login></appcom-login>
 </template>
 
 <script lang='ts' setup>
 import createStore from '../store'
-import loginTab from '@/components/loginTab.vue'
-import { register } from '../api'
+import AppcomLogin from '../components/AppcomLogin.vue'
 
 const store = createStore()
 const app = store.app
@@ -14,14 +13,11 @@ const user1: User = {
   userId: '',
   username: 'myname3',
   password: '1234562',
-  createTime: new Date().valueOf()
+  createTime: 0
 }
 
-// register(user1).then((res) => {
-//   console.log(res)
-// })
-
 app.set_user(user1)
+
 </script>
 
 <style>
