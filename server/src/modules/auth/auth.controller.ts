@@ -13,5 +13,10 @@ export class AuthController {
   async register(@Body() req: any) {
     return this.authService.register(req.user)
   }
+
+  @Post('/login')
+  async login(@Body() req: any) {
+    return this.authService.login(req.user)
+  }
 }
 

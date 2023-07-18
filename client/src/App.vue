@@ -1,19 +1,28 @@
 <template>
-  <menu-com />
-  <div class="content">
-    <router-view></router-view>
-
+  <appcom-navigator />
+  <div class="main-container">
+    <router-view />
   </div>
 </template>
 
 <script lang='ts' setup>
-import menuCom from '@/components/menuCom.vue'
+import AppcomNavigator from '@/components/AppcomNavigator.vue'
+
 </script>
 
 <style>
-.content {
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+}
+
+.main-container {
   position: absolute;
-  left: 200px;
-  top: 100px;
+  left: 70px;
 }
 </style>

@@ -12,10 +12,39 @@ export class AuthService {
     private readonly jwtService: JwtService
   ){}
 
+  // 1. 登录
+  async login(user: User): Promise<any> {
+    const loginUser = await this.userRepository.findOne({where: { username: user.username, password: user.password }})
+    if (!loginUser) {
+      return {
+        code: 10002,
+        msg: '账号或密码错误'
+      }
+    }
+
+    return {
+      code: 10001,
+      msg: '登录成功',
+      data: {
+        user: user,
+        token: this.jwtService.sign({ userId: user.userId, password: user.password })
+      }
+    }
+  }
+
+  // 2. 注册
   async register(user: User): Promise<any> {
+    const hasUser = await this.userRepository.find({where: { username: user.username }})
+    if (hasUser.length) return {
+      code: 10002,
+      msg: '用户名重复！'
+    }
+
     delete user.userId
+    user.createTime = new Date().valueOf()
     const newUser =  await this.userRepository.save(user)
     return {
+      code: 10001,
       msg: '注册成功',
       data: {
         user: newUser,

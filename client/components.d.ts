@@ -7,18 +7,15 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    AppcomLogin: typeof import('./src/components/AppcomLogin.vue')['default']
+    AppcomMessage: typeof import('./src/components/AppcomMessage.vue')['default']
+    AppcomNavigator: typeof import('./src/components/AppcomNavigator.vue')['default']
     ElForm: typeof import('element-plus/es')['ElForm']
     ElFormItem: typeof import('element-plus/es')['ElFormItem']
     ElIcon: typeof import('element-plus/es')['ElIcon']
     ElInput: typeof import('element-plus/es')['ElInput']
-    ElMenu: typeof import('element-plus/es')['ElMenu']
-    ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
-    ElRadioButton: typeof import('element-plus/es')['ElRadioButton']
-    ElRadioGroup: typeof import('element-plus/es')['ElRadioGroup']
     ElTabPane: typeof import('element-plus/es')['ElTabPane']
     ElTabs: typeof import('element-plus/es')['ElTabs']
-    LoginTab: typeof import('./src/components/loginTab.vue')['default']
-    MenuCom: typeof import('./src/components/menuCom.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

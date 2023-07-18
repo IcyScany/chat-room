@@ -4,7 +4,6 @@ import { UserMap } from '../friend/entity/friend.entity'
 import { InjectRepository } from '@nestjs/typeorm'
 import { Repository } from 'typeorm'
 import { FriendMessage } from '../friend/entity/friendMessage.entity'
-import { RCode } from 'src/common/constant/rcode'
 import { createWriteStream } from 'fs'
 import path from 'path'
 

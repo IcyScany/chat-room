@@ -3,7 +3,6 @@ import { Repository } from 'typeorm'
 import { InjectRepository } from '@nestjs/typeorm'
 import { UserMap } from './entity/friend.entity'
 import { FriendMessage } from './entity/friendMessage.entity'
-import { RCode } from 'src/common/constant/rcode'
 
 @Injectable()
 export class FriendService {
@@ -23,7 +22,7 @@ export class FriendService {
       }
     }
     catch(err){
-      return {code:RCode.ERROR, msg: '获取好友失败', data: err }
+      return {code:'10003', msg: '获取好友失败', data: err }
     }
   }
 
