@@ -10,8 +10,7 @@ import AppcomLogin from '../components/AppcomLogin.vue'
 
 </script>
 
-<style>
-
+<style scoped lang="scss">
 .login-container {
   position: relative;
   width: 100%;
