@@ -54,7 +54,10 @@ input {
   outline: none;
 
   &:focus {
-    /* opacity: 0.85; */
     background-color: rgba(211, 211, 211, 0.723);
   }
+}
+
+.el-icon {
+  cursor: pointer;
 }

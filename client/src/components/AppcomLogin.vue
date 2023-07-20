@@ -61,7 +61,7 @@ const handleRequest = async () => {
 }
 </script>
 
-<style>
+<style scoped lang="scss">
 .login-component {
   position: relative;
   top: 30%;

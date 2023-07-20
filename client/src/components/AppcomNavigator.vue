@@ -60,7 +60,6 @@ const toPage = (path: string) => {
     .el-icon {
       margin: 20px 0;
       color: rgb(190, 190, 190);
-      cursor: pointer;
 
       &:last-child {
         position: absolute;

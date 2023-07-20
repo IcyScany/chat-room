@@ -29,7 +29,7 @@ const send = () => {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .chat-div {
   height: 500px;
   width: 500px;

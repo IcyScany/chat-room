@@ -7,6 +7,8 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    AppcomFriendAdd: typeof import('./src/components/AppcomFriendAdd.vue')['default']
+    AppcomFriendList: typeof import('./src/components/AppcomFriendList.vue')['default']
     AppcomLogin: typeof import('./src/components/AppcomLogin.vue')['default']
     AppcomMessage: typeof import('./src/components/AppcomMessage.vue')['default']
     AppcomNavigator: typeof import('./src/components/AppcomNavigator.vue')['default']
