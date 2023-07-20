@@ -1,7 +1,7 @@
 <template>
-  <div class="container-nav">
+  <div class="nav-component">
     <!-- 1. 头像 -->
-    <div class="avatar" @click="toPage('/login')"></div>
+    <div class="avatar"></div>
 
     <!-- 2. 导航栏 -->
     <div class="nav-group">
@@ -20,14 +20,15 @@
 
 <script lang="ts" setup>
 import { useRoute } from 'vue-router'
-import { ChatRound, User } from '@element-plus/icons-vue'
+import { ChatRound, User, SwitchButton } from '@element-plus/icons-vue'
 import router from '@/router'
 
 const route = useRoute()
 
 const pages = [
   { path: '/chat', icon: ChatRound },
-  { path: '/friend', icon: User }
+  { path: '/friend', icon: User },
+  { path: '/login', icon: SwitchButton },
 ]
 
 const toPage = (path: string) => {
@@ -37,7 +38,7 @@ const toPage = (path: string) => {
 </script>
 
 <style scoped lang="scss">
-.container-nav {
+.nav-component {
   position: absolute;
   width: 70px;
   height: 100%;
@@ -60,6 +61,12 @@ const toPage = (path: string) => {
       margin: 20px 0;
       color: rgb(190, 190, 190);
       cursor: pointer;
+
+      &:last-child {
+        position: absolute;
+        bottom: 20px;
+        left: calc(50% - 12px);
+      }
     }
   }
 

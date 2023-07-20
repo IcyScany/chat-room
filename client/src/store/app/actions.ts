@@ -5,6 +5,11 @@ const appActions = {
   set_user: (payload: User) => {
     appState.user = payload
     Cookies.set('user', JSON.stringify(payload), { expires: 30 })
+  },
+
+  set_token: (payload: string) => {
+    appState.token = payload
+    Cookies.set('token', payload, { expires: 3 })
   }
 }
 

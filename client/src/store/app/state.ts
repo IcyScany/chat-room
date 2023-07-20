@@ -1,5 +1,6 @@
 export interface AppState {
   user: User;
+  token: string;
 }
 
 const appState: AppState = {
@@ -8,7 +9,8 @@ const appState: AppState = {
     username: '',
     password: '',
     createTime: 0
-  }
+  },
+  token: ''
 }
 
 export default appState
