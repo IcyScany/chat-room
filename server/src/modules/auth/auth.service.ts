@@ -17,16 +17,16 @@ export class AuthService {
     const loginUser = await this.userRepository.findOne({where: { username: user.username, password: user.password }})
     if (!loginUser) {
       return {
-        code: 10002,
+        code: 1,
         msg: '账号或密码错误'
       }
     }
 
     return {
-      code: 10001,
+      code: 0,
       msg: '登录成功',
       data: {
-        user: user,
+        user: loginUser,
         token: this.jwtService.sign({ userId: user.userId, password: user.password })
       }
     }
@@ -36,7 +36,7 @@ export class AuthService {
   async register(user: User): Promise<any> {
     const hasUser = await this.userRepository.find({where: { username: user.username }})
     if (hasUser.length) return {
-      code: 10002,
+      code: 1,
       msg: '用户名重复！'
     }
 
@@ -44,7 +44,7 @@ export class AuthService {
     user.createTime = new Date().valueOf()
     const newUser =  await this.userRepository.save(user)
     return {
-      code: 10001,
+      code: 0,
       msg: '注册成功',
       data: {
         user: newUser,

@@ -19,7 +19,7 @@ export class UserService {
         })
       }
     } catch(err) {
-      return { code: '10003', msg:'获取用户失败', data:err}
+      return { code: '2', msg:'获取用户失败', data:err}
     }
   }
 }

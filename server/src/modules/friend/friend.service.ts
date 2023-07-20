@@ -22,7 +22,7 @@ export class FriendService {
       }
     }
     catch(err){
-      return {code:'10003', msg: '获取好友失败', data: err }
+      return {code:'2', msg: '获取好友失败', data: err }
     }
   }
 
