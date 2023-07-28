@@ -13,6 +13,7 @@ declare module 'vue' {
     AppcomMessage: typeof import('./src/components/AppcomMessage.vue')['default']
     AppcomNavigator: typeof import('./src/components/AppcomNavigator.vue')['default']
     ElIcon: typeof import('element-plus/es')['ElIcon']
+    ElImage: typeof import('element-plus/es')['ElImage']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

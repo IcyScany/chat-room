@@ -2,12 +2,12 @@ import Cookies from 'js-cookie'
 import appState from './state'
 
 const appActions = {
-  set_user: (payload: User) => {
+  setUser: (payload: User) => {
     appState.user = payload
     Cookies.set('user', JSON.stringify(payload), { expires: 30 })
   },
 
-  set_token: (payload: string) => {
+  setToken: (payload: string) => {
     appState.token = payload
     Cookies.set('token', payload, { expires: 3 })
   }
