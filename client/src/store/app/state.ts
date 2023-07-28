@@ -8,6 +8,7 @@ const appState: AppState = {
     userId: '',
     username: '',
     password: '',
+    avatar: '',
     createTime: 0
   },
   token: ''

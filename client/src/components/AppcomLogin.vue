@@ -31,7 +31,7 @@ import { ElMessage } from 'element-plus'
 // 1. 定义数据
 const app = createStore().app
 
-const apiType = reactive([
+let apiType = reactive([
   { label: '登录', fun: login },
   { label: '注册', fun: register }
 ])
@@ -40,12 +40,15 @@ const user: User = reactive({
   userId: '',
   username: '',
   password: '',
+  avatar: '',
   createTime: 0
 })
 
 // 2. 函数定义
 const exchangeType = () => {
-  [apiType[0], apiType[1]] = [apiType[1], apiType[0]]
+  const temp = apiType[0]
+  apiType[0] = apiType[1]
+  apiType[1] = temp
 }
 
 const handleRequest = async () => {
@@ -54,8 +57,8 @@ const handleRequest = async () => {
   const res = await apiType[0].fun(user)
   const data = requestReturn(res)
   if (data) {
-    app.set_user(data.user)
-    app.set_token(data.token)
+    app.setUser(data.user)
+    app.setToken(data.token)
     router.push('/chat')
   }
 }

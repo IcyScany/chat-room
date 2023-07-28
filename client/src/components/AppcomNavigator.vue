@@ -1,7 +1,10 @@
 <template>
   <div class="nav-component">
     <!-- 1. 头像 -->
-    <div class="avatar"></div>
+    <div class="avatar">
+      <el-image :src="imgUrl" fit="fill" />
+      <div style="color: white; margin: 0 auto; width: fit-content;">{{ app.user.username }}</div>
+    </div>
 
     <!-- 2. 导航栏 -->
     <div class="nav-group">
@@ -21,9 +24,15 @@
 <script lang="ts" setup>
 import { useRoute } from 'vue-router'
 import { ChatRound, User, SwitchButton } from '@element-plus/icons-vue'
+import { baseURL } from '@/api/fetch'
 import router from '@/router'
+import createStore from '@/store'
 
+// 数据
+const app = createStore().app
 const route = useRoute()
+
+const imgUrl = baseURL + app.user.avatar
 
 const pages = [
   { path: '/chat', icon: ChatRound },
@@ -31,6 +40,7 @@ const pages = [
   { path: '/login', icon: SwitchButton },
 ]
 
+// 函数
 const toPage = (path: string) => {
   router.push(path)
 }
@@ -47,7 +57,7 @@ const toPage = (path: string) => {
   .avatar {
     width: 50px;
     height: 50px;
-    margin: 30px auto;
+    margin: 15px auto;
     border: 2px solid white;
     border-radius: 5px;
     cursor: pointer;
@@ -55,7 +65,7 @@ const toPage = (path: string) => {
 
   .nav-group {
     width: 24px;
-    margin: 0 auto;
+    margin: 50px auto;
 
     .el-icon {
       margin: 20px 0;

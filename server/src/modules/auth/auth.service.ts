@@ -41,6 +41,7 @@ export class AuthService {
     }
 
     delete user.userId
+    user.avatar = '/avatar/default.png'
     user.createTime = new Date().valueOf()
     const newUser =  await this.userRepository.save(user)
     return {

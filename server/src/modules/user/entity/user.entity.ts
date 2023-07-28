@@ -11,6 +11,9 @@ export class User {
   @Column({ select: false })
   password: string
 
+  @Column()
+  avatar: string
+
   @Column({ type: 'double', default: new Date().valueOf() })
   createTime: number
 }
